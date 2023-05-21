@@ -28,3 +28,35 @@ import { galleryItems } from './gallery-items.js';
 
 
 console.log(galleryItems);
+
+
+const galleryEL = document.querySelector('.gallery');
+
+const imagesList = ({preview, original, description}) => {
+    return `  <a class="gallery__item" href="${original}">
+            <img
+            class="gallery__image"
+            src="${preview}"
+            title="${description}"
+            alt="${description}"/>
+            </a>`;
+  };
+
+  
+const addImg = galleryItems.map(imagesList).join('');
+galleryEL.insertAdjacentHTML("afterbegin", addImg);
+
+galleryEL.addEventListener('click', onImgClick );
+
+function onImgClick (event){
+const imageSelected = event.target.getAttribute("data-source");
+  
+event.preventDefault();
+
+if (!imageSelected){return;}
+
+};
+
+const galleryBox = new SimpleLightbox('.gallery a', {
+   captionDelay: 250,
+    });
