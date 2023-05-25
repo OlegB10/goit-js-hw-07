@@ -46,17 +46,6 @@ const imagesList = ({preview, original, description}) => {
 const addImg = galleryItems.map(imagesList).join('');
 galleryEL.insertAdjacentHTML("afterbegin", addImg);
 
-galleryEL.addEventListener('click', onImgClick );
-
-function onImgClick (event){
-const imageSelected = event.target.getAttribute("data-source");
-  
-event.preventDefault();
-
-if (!imageSelected){return;}
-
-};
-
 const galleryBox = new SimpleLightbox('.gallery a', {
    captionDelay: 250,
     });
